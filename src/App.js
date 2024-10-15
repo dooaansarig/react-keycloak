@@ -8,7 +8,7 @@ import {
 import Keycloak from "keycloak-js";
 import axios from "axios";
 
-const TOKEN = "pat-eu1-28801c88-c014-4782-8f1a-6f65eb8aef8e";
+
 
 let initOptions = {
   url: "http://localhost:8080/",
