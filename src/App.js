@@ -17,24 +17,24 @@ let initOptions = {
 };
 const keycloak = new Keycloak(initOptions);
 
-// keycloak
-//   .init({
-//     onLoad: "login-required",
-//     checkLoginIframe: false,
-//     pkceMethod: "S256",
-//   })
-//   .then((authenticated) => {
-//     if (!authenticated) {
-//       window.location.reload();
-//       // console.log("here")
-//       // ReactDOM.render(<App keycloak={keycloak} />, document.getElementById('root'));
-//     } else {
-//       console.log(authenticated);
-//     }
-//   })
-//   .catch((error) => {
-//     console.error("Keycloak initialization failed", error);
-//   });
+keycloak
+  .init({
+    onLoad: "login-required",
+    checkLoginIframe: false,
+    pkceMethod: "S256",
+  })
+  .then((authenticated) => {
+    if (!authenticated) {
+      window.location.reload();
+      // console.log("here")
+      // ReactDOM.render(<App keycloak={keycloak} />, document.getElementById('root'));
+    } else {
+      console.log(authenticated);
+    }
+  })
+  .catch((error) => {
+    console.error("Keycloak initialization failed", error);
+  });
 
 function App() {
   const [userInfo, setUserInfo] = React.useState(null);
@@ -59,15 +59,15 @@ function App() {
       keycloak.loadUserInfo().then((userInfo) => {
         setUserInfo(userInfo);
         console.log(userInfo);
-        saveToHubspot({
-          email: userInfo.email,
-          firstname: userInfo.family_name,
-          lastname: userInfo.given_name,
-          phone: "(555) 555-5555",
-          company: "HubSpot",
-          website: "hubspot.com",
-          lifecyclestage: "marketingqualifiedlead",
-        });
+        // saveToHubspot({
+        //   email: userInfo.email,
+        //   firstname: userInfo.family_name,
+        //   lastname: userInfo.given_name,
+        //   phone: "(555) 555-5555",
+        //   company: "HubSpot",
+        //   website: "hubspot.com",
+        //   lifecyclestage: "marketingqualifiedlead",
+        // });
       });
     }
   }, [load]);
