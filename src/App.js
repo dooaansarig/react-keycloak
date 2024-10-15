@@ -8,8 +8,6 @@ import {
 import Keycloak from "keycloak-js";
 import axios from "axios";
 
-
-
 let initOptions = {
   url: "http://localhost:8080/",
   realm: "poc",
